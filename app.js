@@ -1,65 +1,29 @@
-class FormSubmit {
-    constructor(settings) {
-        this.settings = settings;
-        this.form = document.querySelector(settings.form);
-        this.formButton = document.querySelector(settings.button);
-        if (this.form) {
-            this.url = this.form.getAttribute("action");
-        }
-        this.sendForm = this.sendForm.bind(this);
-    }
+const inputs = document.querySelectorAll(".input");
 
-    displaySuccess() {
-        this.form.innerHTML = this.settings.success;
-    }
+function focusFunc() {
+    let parent = this.parentNode;
+    parent.classList.add("focus");
+}
 
-    displayError() {
-        this.form.innerHTML = this.settings.error;
-    }
-
-    getFormObject() {
-        const formObject = {};
-        const fields = this.form.querySelectorAll("[name]");
-        fields.forEach((field) => {
-            formObject[field.getAttribute("name")] = field.value;
-        });
-        return formObject;
-    }
-
-    onSubmission(event) {
-        event.preventDefault();
-        event.target.disabled = true;
-        event.target.innerText = "Enviando...";
-    }
-
-    async sendForm(event) {
-        try {
-            this.onSubmission(event);
-            await fetch(this.url, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json",
-                },
-                body: JSON.stringify(this.getFormObject()),
-            });
-            this.displaySuccess();
-        } catch (error) {
-            this.displayError();
-            throw new Error(error);
-        }
-    }
-
-    init() {
-        if (this.form) this.formButton.addEventListener("click", this.sendForm);
-        return this;
+function blurFunc() {
+    let parent = this.parentNode;
+    if (this.value == "") {
+        parent.classList.remove("focus");
     }
 }
 
-const formSubmit = new FormSubmit({
-    form: "[data-form]",
-    button: "[data-button]",
-    success: "<h1 class='success'>Mensagem enviada!</h1>",
-    error: "<h1 class='error'>Não foi possível enviar sua mensagem.</h1>",
+inputs.forEach((input) => {
+    input.addEventListener("focus", focusFunc);
+    input.addEventListener("blur", blurFunc);
 });
-formSubmit.init();
+
+// Pop Up
+let popup = document.getElementById("popup");
+
+function openPopup() {
+    popup.classList.add("open-popup");
+}
+
+function closePopup() {
+    popup.classList.remove("open-popup");
+}

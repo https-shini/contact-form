@@ -1,29 +1,112 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Contato</title>
         <link rel="stylesheet" href="style.css" />
-        <script defer src="app.js"></script>
+        <script
+            src="https://kit.fontawesome.com/64d58efce2.js"
+            crossorigin="anonymous"
+        ></script>
     </head>
     <body>
-        <form
-            action="https://formsubmit.co/ajax/contato.guilhermescruz@gmail.com"
-            method="POST"
-            data-form
-        >
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome" required />
+        <div class="container">
+            <span class="big-circle"></span>
+            <img src="img/shape.png" class="square" alt="" />
+            <div class="form">
+                <div class="contact-info">
+                    <h3 class="title">Vamos entrar em contato!</h3>
+                    <p class="text">
+                        Mande um email, estou sempre aberto a novas
+                        oportunidades para colaborar em projetos desafiadores e
+                        inovadores, então entre em contato.
+                    </p>
 
-            <label for="email">E-mail</label>
-            <input type="email" name="email" id="email" required />
+                    <div class="info">
+                        <img
+                            src="./img/programming-animate.svg"
+                            alt="img-bot"
+                        />
+                    </div>
 
-            <label for="mensagem">Mensagem</label>
-            <textarea name="mensagem" id="mensagem" required></textarea>
+                    <!-- <div class="social-media">
+                        <p>Connect with us :</p>
+                        <div class="social-icons">
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div> -->
+                </div>
 
-            <button class="btn" type="submit" data-button>Enviar</button>
-        </form>
+                <div class="contact-form">
+                    <span class="circle one"></span>
+                    <span class="circle two"></span>
+
+                    <form
+                        action="https://formsubmit.co/ajax/c2902aec0e85bbdd38e8473dffc244fe"
+                        method="POST"
+                        data-form
+                        autocomplete="off"
+                    >
+                        <h3 class="title">Contato</h3>
+                        <div class="input-container">
+                            <input
+                                type="text"
+                                name="name"
+                                class="input"
+                                required
+                            />
+                            <label for="">Nome</label>
+                            <span>Nome</span>
+                        </div>
+                        <div class="input-container">
+                            <input
+                                type="email"
+                                name="email"
+                                class="input"
+                                required
+                            />
+                            <label for="">Email</label>
+                            <span>Email</span>
+                        </div>
+                        <div class="input-container textarea">
+                            <textarea
+                                name="message"
+                                class="input"
+                                required
+                            ></textarea>
+                            <label for="">Mensagem</label>
+                            <span>Mensagem</span>
+                        </div>
+                        <input
+                            type="submit"
+                            value="Enviar"
+                            class="btn"
+                            data-button
+                            onclick="openPopup()"
+                        />
+                    </form>
+                </div>
+                <div class="popup" id="popup">
+                    <img src="./img/tick.png" alt="tick" />
+                    <h2>Obrigado</h2>
+                    <p>Seu email foi enviado com sucesso!</p>
+                    <button type="button" onclick="closePopup()">Voltar</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="app.js"></script>
     </body>
 </html>
